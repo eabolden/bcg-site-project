@@ -1,0 +1,18 @@
+<p><%= link_to "Articles", :controller => 'the_article', :action => "list" %> | <%= link_to "Pages", :controller => 'the_page', :action => "list" %> | <%= link_to "Sites", :controller => 'the_site', :action => "list" %></p>
+
+<% my_article = Article.find_by_id(params[:id])%>
+
+ <span class="article_title"><p><b>Title:</b> <%= my_article.article_title %></p></span>
+<p><b>Author:</b> <%= my_article.article_author %></p>
+<p /><b>Article:</b> <%= my_article.article_public_text %>
+<% if logged_in? %>
+<br /><%= "--- #{my_article.article_private_text}" %>
+<% end %>
+<p><b>Sort:</b> <%= my_article.article_weight %></p>
+<p><b>Created:</b> <%= my_article.created_on %></p>
+<p><b>Modified:</b> <%= my_article.updated_on %></p>
+
+
+<%= link_to 'Edit', :action => 'edit', :id => @article %> |
+<%= link_to 'Back', :action => 'list' %>
+

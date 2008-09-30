@@ -1,0 +1,24 @@
+<%= error_messages_for 'article' %>
+
+<!--[form:article]-->
+
+<p><label for="article_page_id">Page Name</label><br/>
+<%= select 'article','page_id', Page.find(:all).collect {|tt| [tt.page_title,tt.id]},{:prompt => 'Select A Page for this Article'}  %></p>
+
+<p><label for="article_article_title">Article title</label><br/>
+<%= text_field 'article', 'article_title'  %></p>
+
+<p><label for="article_article_author">Article author</label><br/>
+<%= text_field 'article', 'article_author'  %></p>
+
+<p><label for="article_article_public_text">Article public text</label><br/>
+<%= textile_editor 'article', 'article_public_text'  %></p>
+
+<p><label for="article_article_private_text">Article private text</label><br/>
+<%= textile_editor 'article', 'article_private_text'  %></p>
+
+<p><label for="article_article_weight">Article weight</label><br/>
+<%= text_field 'article', 'article_weight'  %></p>
+
+<%= textile_editor_initialize -%>
+<!--[eoform:article]-->

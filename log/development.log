@@ -1,0 +1,734 @@
+  [4;36;1mSQL (0.005838)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.004057)[0m   [0mCREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.019616)[0m   [0;1mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.001348)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateSites (1)
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'sites' already exists: CREATE TABLE sites (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `contact` varchar(255) DEFAULT NULL, `sitename` varchar(255) DEFAULT NULL, `created_on` datetime DEFAULT NULL, `updated_on` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+
+
+Processing TestController#index (for 127.0.0.1 at 2008-09-17 11:35:33) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"index", "controller"=>"test"}
+Redirected to http://localhost:3000/account/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x366071c @filter=:login_required>] returned_false.
+Completed in 0.00152 (659 reqs/sec) | 302 Found [http://localhost/]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:35:33) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.01339 (74 reqs/sec) | Rendering: 0.01242 (92%) | 200 OK [http://localhost/account/login]
+
+
+Processing ViewController#list (for 127.0.0.1 at 2008-09-17 11:35:36) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"list", "controller"=>"view"}
+  [4;36;1mSQL (0.000803)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mArticle Columns (0.001942)[0m   [0mSHOW FIELDS FROM articles[0m
+  [4;36;1mArticle Load (0.001375)[0m   [0;1mSELECT * FROM articles WHERE (articles.`page_id` IS NULL) [0m
+Rendering  within layouts/application
+Rendering view/list
+Completed in 1.18459 (0 reqs/sec) | Rendering: 0.09490 (8%) | DB: 0.00412 (0%) | 200 OK [http://localhost/view/list]
+
+
+Processing TheArticleController#list (for 127.0.0.1 at 2008-09-17 11:35:39) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"list", "controller"=>"the_article"}
+  [4;35;1mArticle Load (0.002617)[0m   [0mSELECT * FROM articles [0m
+  [4;36;1mArticle Columns (0.001922)[0m   [0;1mSHOW FIELDS FROM articles[0m
+  [4;35;1mPage Columns (0.001687)[0m   [0mSHOW FIELDS FROM pages[0m
+  [4;36;1mPage Load (0.001245)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 3) [0m
+  [4;35;1mPage Load (0.001101)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;36;1mPage Load (0.001110)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+  [4;35;1mPage Load (0.001084)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 4) [0m
+  [4;36;1mPage Load (0.001193)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;35;1mPage Load (0.001018)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;36;1mPage Load (0.001097)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 6) [0m
+  [4;35;1mPage Load (0.000980)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 3) [0m
+  [4;36;1mPage Load (0.001039)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 5) [0m
+  [4;35;1mPage Load (0.001093)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 7) [0m
+  [4;36;1mPage Load (0.001057)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;35;1mPage Load (0.001155)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+Rendering  within layouts/application.rhtml
+Rendering the_article/list
+Completed in 0.06928 (14 reqs/sec) | Rendering: 0.02468 (35%) | DB: 0.01940 (27%) | 200 OK [http://localhost/the_article/list]
+
+
+Processing ThePageController#list (for 127.0.0.1 at 2008-09-17 11:35:40) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"list", "controller"=>"the_page"}
+  [4;36;1mPage Load (0.003157)[0m   [0;1mSELECT * FROM pages [0m
+  [4;35;1mPage Columns (0.003178)[0m   [0mSHOW FIELDS FROM pages[0m
+Rendering  within layouts/application.rhtml
+Rendering the_page/list
+Completed in 0.03575 (27 reqs/sec) | Rendering: 0.02113 (59%) | DB: 0.00634 (17%) | 200 OK [http://localhost/the_page/list]
+
+
+Processing TheSiteController#list (for 127.0.0.1 at 2008-09-17 11:35:41) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"list", "controller"=>"the_site"}
+DEPRECATION WARNING: paginate is deprecated and will be removed from Rails 2.0 (Pagination is moving to a plugin in Rails 2.0: script/plugin install svn://errtheblog.com/svn/plugins/classic_pagination)  See http://www.rubyonrails.org/deprecation for details. (called from list at /Users/eabolden/bcgsite/bcg_internal_web/app/controllers/the_site_controller.rb:14)
+  [4;36;1mSite Columns (0.004487)[0m   [0;1mSHOW FIELDS FROM sites[0m
+  [4;35;1mSQL (0.006594)[0m   [0mSELECT count(*) AS count_all FROM sites [0m
+  [4;36;1mSite Load (0.007644)[0m   [0;1mSELECT * FROM sites LIMIT 0, 10[0m
+Rendering  within layouts/application.rhtml
+Rendering the_site/list
+Completed in 0.04616 (21 reqs/sec) | Rendering: 0.01768 (38%) | DB: 0.01872 (40%) | 200 OK [http://localhost/the_site/list]
+
+
+Processing ThePageController#list (for 127.0.0.1 at 2008-09-17 11:35:45) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"list", "controller"=>"the_page"}
+  [4;35;1mPage Load (0.001192)[0m   [0mSELECT * FROM pages [0m
+  [4;36;1mPage Columns (0.001635)[0m   [0;1mSHOW FIELDS FROM pages[0m
+Rendering  within layouts/application.rhtml
+Rendering the_page/list
+Completed in 0.09505 (10 reqs/sec) | Rendering: 0.08613 (90%) | DB: 0.00283 (2%) | 200 OK [http://localhost/the_page/list]
+
+
+Processing TheArticleController#list (for 127.0.0.1 at 2008-09-17 11:35:46) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"list", "controller"=>"the_article"}
+  [4;35;1mArticle Load (0.002556)[0m   [0mSELECT * FROM articles [0m
+  [4;36;1mArticle Columns (0.001894)[0m   [0;1mSHOW FIELDS FROM articles[0m
+  [4;35;1mPage Columns (0.001782)[0m   [0mSHOW FIELDS FROM pages[0m
+  [4;36;1mPage Load (0.001077)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 3) [0m
+  [4;35;1mPage Load (0.001041)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;36;1mPage Load (0.001226)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+  [4;35;1mPage Load (0.001191)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 4) [0m
+  [4;36;1mPage Load (0.001056)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;35;1mPage Load (0.001053)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;36;1mPage Load (0.001063)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 6) [0m
+  [4;35;1mPage Load (0.001116)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 3) [0m
+  [4;36;1mPage Load (0.001119)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 5) [0m
+  [4;35;1mPage Load (0.001148)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 7) [0m
+  [4;36;1mPage Load (0.001052)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;35;1mPage Load (0.001148)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+Rendering  within layouts/application.rhtml
+Rendering the_article/list
+Completed in 0.06723 (14 reqs/sec) | Rendering: 0.02328 (34%) | DB: 0.01952 (29%) | 200 OK [http://localhost/the_article/list]
+
+
+Processing ThePageController#list (for 127.0.0.1 at 2008-09-17 11:35:51) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"list", "controller"=>"the_page"}
+  [4;36;1mPage Load (0.002768)[0m   [0;1mSELECT * FROM pages [0m
+  [4;35;1mPage Columns (0.001977)[0m   [0mSHOW FIELDS FROM pages[0m
+Rendering  within layouts/application.rhtml
+Rendering the_page/list
+Completed in 0.02875 (34 reqs/sec) | Rendering: 0.01592 (55%) | DB: 0.00475 (16%) | 200 OK [http://localhost/the_page/list]
+
+
+Processing TheArticleController#view_list (for 127.0.0.1 at 2008-09-17 11:35:53) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"view_list", "id"=>"8", "controller"=>"the_article"}
+  [4;36;1mArticle Columns (0.003048)[0m   [0;1mSHOW FIELDS FROM articles[0m
+  [4;35;1mArticle Load (0.001328)[0m   [0mSELECT * FROM articles WHERE (articles.`page_id` = '8') [0m
+Rendering  within layouts/application.rhtml
+Rendering the_article/view_list
+Completed in 0.01826 (54 reqs/sec) | Rendering: 0.00636 (34%) | DB: 0.00438 (23%) | 200 OK [http://localhost/the_article/view_list/8]
+
+
+Processing ThePageController#list (for 127.0.0.1 at 2008-09-17 11:35:56) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"list", "controller"=>"the_page"}
+  [4;36;1mPage Load (0.001418)[0m   [0;1mSELECT * FROM pages [0m
+  [4;35;1mPage Columns (0.001888)[0m   [0mSHOW FIELDS FROM pages[0m
+Rendering  within layouts/application.rhtml
+Rendering the_page/list
+Completed in 0.09602 (10 reqs/sec) | Rendering: 0.08515 (88%) | DB: 0.00331 (3%) | 200 OK [http://localhost/the_page/list]
+
+
+Processing TheArticleController#view_list (for 127.0.0.1 at 2008-09-17 11:35:58) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"view_list", "id"=>"2", "controller"=>"the_article"}
+  [4;36;1mArticle Columns (0.001834)[0m   [0;1mSHOW FIELDS FROM articles[0m
+  [4;35;1mArticle Load (0.001436)[0m   [0mSELECT * FROM articles WHERE (articles.`page_id` = '2') [0m
+Rendering  within layouts/application.rhtml
+Rendering the_article/view_list
+  [4;36;1mPage Columns (0.002032)[0m   [0;1mSHOW FIELDS FROM pages[0m
+  [4;35;1mPage Load (0.002765)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+  [4;36;1mPage Load (0.002703)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+Completed in 0.03014 (33 reqs/sec) | Rendering: 0.01231 (40%) | DB: 0.01077 (35%) | 200 OK [http://localhost/the_article/view_list/2]
+
+
+Processing TheArticleController#edit (for 127.0.0.1 at 2008-09-17 11:36:01) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"edit", "id"=>"13", "controller"=>"the_article"}
+  [4;35;1mArticle Columns (0.005536)[0m   [0mSHOW FIELDS FROM articles[0m
+  [4;36;1mArticle Load (0.001980)[0m   [0;1mSELECT * FROM articles WHERE (articles.`id` = 13) [0m
+Rendering  within layouts/application.rhtml
+Rendering the_article/edit
+  [4;35;1mPage Load (0.011149)[0m   [0mSELECT * FROM pages [0m
+  [4;36;1mPage Columns (0.008059)[0m   [0;1mSHOW FIELDS FROM pages[0m
+Rendered the_article/_form (0.03773)
+Completed in 0.05495 (18 reqs/sec) | Rendering: 0.02332 (42%) | DB: 0.02672 (48%) | 200 OK [http://localhost/the_article/edit/13]
+
+
+Processing TheArticleController#list (for 127.0.0.1 at 2008-09-17 11:36:07) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"list", "controller"=>"the_article"}
+  [4;35;1mArticle Load (0.005910)[0m   [0mSELECT * FROM articles [0m
+  [4;36;1mArticle Columns (0.002123)[0m   [0;1mSHOW FIELDS FROM articles[0m
+  [4;35;1mPage Columns (0.005655)[0m   [0mSHOW FIELDS FROM pages[0m
+  [4;36;1mPage Load (0.008326)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 3) [0m
+  [4;35;1mPage Load (0.004291)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;36;1mPage Load (0.010454)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+  [4;35;1mPage Load (0.002184)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 4) [0m
+  [4;36;1mPage Load (0.006587)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;35;1mPage Load (0.001920)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;36;1mPage Load (0.002916)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 6) [0m
+  [4;35;1mPage Load (0.004066)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 3) [0m
+  [4;36;1mPage Load (0.006605)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 5) [0m
+  [4;35;1mPage Load (0.004591)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 7) [0m
+  [4;36;1mPage Load (0.003151)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;35;1mPage Load (0.002255)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+Rendering  within layouts/application.rhtml
+Rendering the_article/list
+Completed in 0.13431 (7 reqs/sec) | Rendering: 0.02492 (18%) | DB: 0.07103 (52%) | 200 OK [http://localhost/the_article/list]
+
+
+Processing TestController#index (for 127.0.0.1 at 2008-09-17 11:36:12) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"index", "controller"=>"test"}
+Redirected to http://localhost:3000/account/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x386ce0c @filter=:login_required>] returned_false.
+Completed in 0.00204 (490 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/test]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:36:13) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.00532 (188 reqs/sec) | Rendering: 0.00423 (79%) | DB: 0.00000 (0%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:36:21) [POST]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"commit"=>"Log in", "action"=>"login", "controller"=>"account", "login"=>"eabolden", "password"=>"bolden00"}
+  [4;36;1mUser Columns (0.005433)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.000948)[0m   [0mSELECT * FROM users WHERE (users.`login` = 'eabolden') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.01965 (50 reqs/sec) | Rendering: 0.00317 (16%) | DB: 0.00638 (32%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:36:27) [POST]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"commit"=>"Log in", "action"=>"login", "controller"=>"account", "login"=>"eabolden", "password"=>"iw2slE"}
+  [4;36;1mUser Columns (0.002053)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.001392)[0m   [0mSELECT * FROM users WHERE (users.`login` = 'eabolden') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.01834 (54 reqs/sec) | Rendering: 0.00509 (27%) | DB: 0.00344 (18%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:36:33) [POST]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"commit"=>"Log in", "action"=>"login", "controller"=>"account", "login"=>"support", "password"=>"Yew4_eli"}
+  [4;36;1mUser Columns (0.002519)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.004654)[0m   [0mSELECT * FROM users WHERE (users.`login` = 'support') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.02674 (37 reqs/sec) | Rendering: 0.00460 (17%) | DB: 0.00717 (26%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:36:39) [POST]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"commit"=>"Log in", "action"=>"login", "controller"=>"account", "login"=>"eabolden", "password"=>"bolden00"}
+  [4;36;1mUser Columns (0.001993)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.001056)[0m   [0mSELECT * FROM users WHERE (users.`login` = 'eabolden') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.02942 (33 reqs/sec) | Rendering: 0.00580 (19%) | DB: 0.00305 (10%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:36:45) [POST]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"commit"=>"Log in", "action"=>"login", "controller"=>"account", "login"=>"eabolden", "password"=>"boldenv1!"}
+  [4;36;1mUser Columns (0.001851)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.000958)[0m   [0mSELECT * FROM users WHERE (users.`login` = 'eabolden') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.01254 (79 reqs/sec) | Rendering: 0.00345 (27%) | DB: 0.00281 (22%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:36:57) [POST]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"commit"=>"Log in", "action"=>"login", "controller"=>"account", "login"=>"eabolden", "password"=>"iw2slE"}
+  [4;36;1mUser Columns (0.001940)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.001010)[0m   [0mSELECT * FROM users WHERE (users.`login` = 'eabolden') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.01292 (77 reqs/sec) | Rendering: 0.00362 (28%) | DB: 0.00295 (22%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:37:01) [POST]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"commit"=>"Log in", "action"=>"login", "controller"=>"account", "login"=>"eabolden", "password"=>"bcg"}
+  [4;36;1mUser Columns (0.002076)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.001253)[0m   [0mSELECT * FROM users WHERE (users.`login` = 'eabolden') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.01690 (59 reqs/sec) | Rendering: 0.00514 (30%) | DB: 0.00333 (19%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:37:10) [POST]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"commit"=>"Log in", "action"=>"login", "controller"=>"account", "login"=>"jelewis1", "password"=>"iw2slE"}
+  [4;36;1mUser Columns (0.002037)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.001193)[0m   [0mSELECT * FROM users WHERE (users.`login` = 'jelewis1') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.01322 (75 reqs/sec) | Rendering: 0.00340 (25%) | DB: 0.00323 (24%) | 200 OK [http://localhost/account/login]
+
+
+Processing ViewController#list (for 127.0.0.1 at 2008-09-17 11:37:57) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"list", "controller"=>"view"}
+  [4;36;1mArticle Columns (0.002037)[0m   [0;1mSHOW FIELDS FROM articles[0m
+  [4;35;1mArticle Load (0.001352)[0m   [0mSELECT * FROM articles WHERE (articles.`page_id` IS NULL) [0m
+Rendering  within layouts/application
+Rendering view/list
+Completed in 0.01525 (65 reqs/sec) | Rendering: 0.00624 (40%) | DB: 0.00339 (22%) | 200 OK [http://localhost/view/list]
+
+
+Processing TheArticleController#list (for 127.0.0.1 at 2008-09-17 11:38:00) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"list", "controller"=>"the_article"}
+  [4;36;1mArticle Load (0.002195)[0m   [0;1mSELECT * FROM articles [0m
+  [4;35;1mArticle Columns (0.002332)[0m   [0mSHOW FIELDS FROM articles[0m
+  [4;36;1mPage Columns (0.003357)[0m   [0;1mSHOW FIELDS FROM pages[0m
+  [4;35;1mPage Load (0.003150)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 3) [0m
+  [4;36;1mPage Load (0.004450)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;35;1mPage Load (0.001318)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+  [4;36;1mPage Load (0.002961)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 4) [0m
+  [4;35;1mPage Load (0.001042)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;36;1mPage Load (0.000862)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;35;1mPage Load (0.000831)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 6) [0m
+  [4;36;1mPage Load (0.000815)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 3) [0m
+  [4;35;1mPage Load (0.000798)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 5) [0m
+  [4;36;1mPage Load (0.000807)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 7) [0m
+  [4;35;1mPage Load (0.006697)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;36;1mPage Load (0.002256)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+Rendering  within layouts/application.rhtml
+Rendering the_article/list
+Completed in 0.08575 (11 reqs/sec) | Rendering: 0.02819 (32%) | DB: 0.03387 (39%) | 200 OK [http://localhost/the_article/list]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2008-09-17 11:42:16) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Redirected to http://localhost:3000/account/login
+Completed in 0.00160 (624 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/account/signup]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:42:16) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.00403 (248 reqs/sec) | Rendering: 0.00312 (77%) | DB: 0.00000 (0%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2008-09-17 11:42:47) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Redirected to http://localhost:3000/account/login
+Completed in 0.00226 (442 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/account/signup]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:42:48) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.00501 (199 reqs/sec) | Rendering: 0.00385 (76%) | DB: 0.00000 (0%) | 200 OK [http://localhost/account/login]
+
+
+Processing ApplicationController#signup (for 127.0.0.1 at 2008-09-17 11:43:19) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+
+
+SyntaxError (/Users/eabolden/bcgsite/bcg_internal_web/app/controllers/account_controller.rb:43: syntax error, unexpected '=', expecting kEND
+  logged_in? = true
+              ^):
+    /Library/Ruby/Gems/1.8/gems/activesupport-1.4.4/lib/active_support/dependencies.rb:203:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-1.4.4/lib/active_support/dependencies.rb:203:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-1.4.4/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-1.4.4/lib/active_support/dependencies.rb:202:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-1.4.4/lib/active_support/dependencies.rb:94:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-1.4.4/lib/active_support/dependencies.rb:248:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-1.4.4/lib/active_support/dependencies.rb:452:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-1.4.4/lib/active_support/dependencies.rb:464:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-1.4.4/lib/active_support/inflector.rb:250:in `constantize'
+    /Library/Ruby/Gems/1.8/gems/activesupport-1.4.4/lib/active_support/core_ext/string/inflections.rb:148:in `constantize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/routing.rb:1317:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/rails-1.2.6/lib/dispatcher.rb:40:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2008-09-17 11:43:41) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.002273)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering  within layouts/application
+Rendering account/signup
+Completed in 0.01782 (56 reqs/sec) | Rendering: 0.00659 (37%) | DB: 0.00227 (12%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2008-09-17 11:44:00) [POST]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"user"=>{"password_confirmation"=>"bolden00", "login"=>"eabolden", "password"=>"bolden00", "email"=>"eabolden@wisc.edu"}, "commit"=>"Sign up", "action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.006066)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mSQL (0.000567)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.000929)[0m   [0;1mSELECT * FROM users WHERE (LOWER(users.login) = 'eabolden') LIMIT 1[0m
+  [4;35;1mUser Load (0.000824)[0m   [0mSELECT * FROM users WHERE (LOWER(users.email) = 'eabolden@wisc.edu') LIMIT 1[0m
+  [4;36;1mSQL (0.000800)[0m   [0;1mINSERT INTO users (`salt`, `updated_at`, `crypted_password`, `remember_token_expires_at`, `remember_token`, `login`, `created_at`, `email`) VALUES('a9218cca0f9b7562a5d7ee289c6c455b585b0982', '2008-09-17 11:44:00', '085ff71fa7cc9398ac09e5542c91b5bab97c9c92', NULL, NULL, 'eabolden', '2008-09-17 11:44:00', 'eabolden@wisc.edu')[0m
+  [4;35;1mSQL (0.005152)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/test
+Completed in 0.02978 (33 reqs/sec) | DB: 0.01434 (48%) | 302 Found [http://localhost/account/signup]
+
+
+Processing TestController#index (for 127.0.0.1 at 2008-09-17 11:44:00) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"index", "controller"=>"test"}
+  [4;36;1mUser Columns (0.007165)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.002848)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) LIMIT 1[0m
+Rendering  within layouts/application.rhtml
+Rendering test/index
+Completed in 0.13201 (7 reqs/sec) | Rendering: 0.00531 (4%) | DB: 0.01001 (7%) | 200 OK [http://localhost/test]
+
+
+Processing TestController#index (for 127.0.0.1 at 2008-09-17 11:44:20) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"index", "id"=>"selected", "controller"=>"test"}
+  [4;36;1mUser Columns (0.009630)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.001404)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) LIMIT 1[0m
+Rendering  within layouts/application.rhtml
+Rendering test/index
+Completed in 0.03184 (31 reqs/sec) | Rendering: 0.00610 (19%) | DB: 0.01103 (34%) | 200 OK [http://localhost/test/index/selected]
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2008-09-17 11:44:26) [GET]
+  Session ID: 821cbfc150a3ad3e15141cd0e39963b3
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+  [4;36;1mUser Columns (0.001843)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.001236)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000527)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.001152)[0m   [0mUPDATE users SET `created_at` = '2008-09-17 11:44:00', `login` = 'eabolden', `crypted_password` = '085ff71fa7cc9398ac09e5542c91b5bab97c9c92', `remember_token_expires_at` = NULL, `salt` = 'a9218cca0f9b7562a5d7ee289c6c455b585b0982', `remember_token` = NULL, `email` = 'eabolden@wisc.edu', `updated_at` = '2008-09-17 11:44:26' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.004110)[0m   [0;1mCOMMIT[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/account
+Completed in 0.02166 (46 reqs/sec) | DB: 0.00887 (40%) | 302 Found [http://localhost/account/logout]
+
+
+Processing AccountController#index (for 127.0.0.1 at 2008-09-17 11:44:26) [GET]
+  Session ID: 52524cfc2c4b945c564d02d88f31f995
+  Parameters: {"action"=>"index", "controller"=>"account"}
+  [4;35;1mUser Columns (0.001769)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mSQL (0.000689)[0m   [0;1mSELECT count(*) AS count_all FROM users [0m
+Rendering  within layouts/application
+Rendering account/index
+Completed in 0.01792 (55 reqs/sec) | Rendering: 0.00795 (44%) | DB: 0.00246 (13%) | 200 OK [http://localhost/account]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:44:27) [GET]
+  Session ID: 52524cfc2c4b945c564d02d88f31f995
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.00638 (156 reqs/sec) | Rendering: 0.00413 (64%) | DB: 0.00000 (0%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-17 11:44:31) [POST]
+  Session ID: 52524cfc2c4b945c564d02d88f31f995
+  Parameters: {"commit"=>"Log in", "action"=>"login", "controller"=>"account", "login"=>"eabolden", "password"=>"bolden00"}
+  [4;35;1mUser Columns (0.007253)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.001109)[0m   [0;1mSELECT * FROM users WHERE (users.`login` = 'eabolden') LIMIT 1[0m
+Redirected to http://localhost:3000/account
+Completed in 0.02199 (45 reqs/sec) | DB: 0.00836 (38%) | 302 Found [http://localhost/account/login]
+
+
+Processing AccountController#index (for 127.0.0.1 at 2008-09-17 11:44:32) [GET]
+  Session ID: 52524cfc2c4b945c564d02d88f31f995
+  Parameters: {"action"=>"index", "controller"=>"account"}
+  [4;35;1mUser Columns (0.004817)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.001028)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) LIMIT 1[0m
+Rendering  within layouts/application
+Rendering account/index
+Completed in 0.02329 (42 reqs/sec) | Rendering: 0.00609 (26%) | DB: 0.00585 (25%) | 200 OK [http://localhost/account]
+
+
+Processing ViewController#list (for 127.0.0.1 at 2008-09-17 11:44:38) [GET]
+  Session ID: 52524cfc2c4b945c564d02d88f31f995
+  Parameters: {"action"=>"list", "controller"=>"view"}
+  [4;35;1mArticle Columns (0.001986)[0m   [0mSHOW FIELDS FROM articles[0m
+  [4;36;1mArticle Load (0.001251)[0m   [0;1mSELECT * FROM articles WHERE (articles.`page_id` IS NULL) [0m
+Rendering  within layouts/application
+Rendering view/list
+  [4;35;1mUser Columns (0.001807)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.001126)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) LIMIT 1[0m
+Completed in 0.02997 (33 reqs/sec) | Rendering: 0.01641 (54%) | DB: 0.00617 (20%) | 200 OK [http://localhost/view/list]
+
+
+Processing ThePageController#list (for 127.0.0.1 at 2008-09-17 11:44:39) [GET]
+  Session ID: 52524cfc2c4b945c564d02d88f31f995
+  Parameters: {"action"=>"list", "controller"=>"the_page"}
+  [4;35;1mPage Load (0.001954)[0m   [0mSELECT * FROM pages [0m
+  [4;36;1mPage Columns (0.002165)[0m   [0;1mSHOW FIELDS FROM pages[0m
+Rendering  within layouts/application.rhtml
+Rendering the_page/list
+  [4;35;1mUser Columns (0.001673)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.001037)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) LIMIT 1[0m
+Completed in 0.06055 (16 reqs/sec) | Rendering: 0.04279 (70%) | DB: 0.00683 (11%) | 200 OK [http://localhost/the_page/list]
+
+
+Processing TheArticleController#view_list (for 127.0.0.1 at 2008-09-17 11:44:41) [GET]
+  Session ID: 52524cfc2c4b945c564d02d88f31f995
+  Parameters: {"action"=>"view_list", "id"=>"2", "controller"=>"the_article"}
+  [4;35;1mArticle Columns (0.001926)[0m   [0mSHOW FIELDS FROM articles[0m
+  [4;36;1mArticle Load (0.001236)[0m   [0;1mSELECT * FROM articles WHERE (articles.`page_id` = '2') [0m
+Rendering  within layouts/application.rhtml
+Rendering the_article/view_list
+  [4;35;1mPage Columns (0.001747)[0m   [0mSHOW FIELDS FROM pages[0m
+  [4;36;1mPage Load (0.004382)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+  [4;35;1mUser Columns (0.002035)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.001937)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) LIMIT 1[0m
+  [4;35;1mPage Load (0.000991)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+Completed in 0.21782 (4 reqs/sec) | Rendering: 0.19408 (89%) | DB: 0.01425 (6%) | 200 OK [http://localhost/the_article/view_list/2]
+  [4;36;1mSQL (0.000714)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000813)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001168)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000916)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000650)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000615)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000614)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000612)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000614)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000648)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000850)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001693)[0m   [0mSHOW FIELDS FROM articles[0m
+  [4;36;1mSQL (0.000953)[0m   [0;1mSHOW KEYS FROM articles[0m
+  [4;35;1mSQL (0.001469)[0m   [0mSHOW FIELDS FROM pages[0m
+  [4;36;1mSQL (0.000906)[0m   [0;1mSHOW KEYS FROM pages[0m
+  [4;35;1mSQL (0.001137)[0m   [0mSHOW FIELDS FROM schema_migrations[0m
+  [4;36;1mSQL (0.001059)[0m   [0;1mSHOW KEYS FROM schema_migrations[0m
+  [4;35;1mSQL (0.001625)[0m   [0mSHOW FIELDS FROM sessions[0m
+  [4;36;1mSQL (0.001030)[0m   [0;1mSHOW KEYS FROM sessions[0m
+  [4;35;1mSQL (0.001347)[0m   [0mSHOW FIELDS FROM sites[0m
+  [4;36;1mSQL (0.000902)[0m   [0;1mSHOW KEYS FROM sites[0m
+  [4;35;1mSQL (0.001527)[0m   [0mSHOW FIELDS FROM taggings[0m
+  [4;36;1mSQL (0.001065)[0m   [0;1mSHOW KEYS FROM taggings[0m
+  [4;35;1mSQL (0.001223)[0m   [0mSHOW FIELDS FROM tags[0m
+  [4;36;1mSQL (0.000906)[0m   [0;1mSHOW KEYS FROM tags[0m
+  [4;35;1mSQL (0.001530)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mSQL (0.000917)[0m   [0;1mSHOW KEYS FROM users[0m
+
+
+Processing TestController#index (for 127.0.0.1 at 2008-09-17 12:01:49) [GET]
+  Session ID: 52524cfc2c4b945c564d02d88f31f995
+  Parameters: {"action"=>"index", "controller"=>"test"}
+  [4;36;1mUser Columns (0.002508)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.006389)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) LIMIT 1[0m
+Rendering  within layouts/application.rhtml
+Rendering test/index
+Completed in 0.02451 (40 reqs/sec) | Rendering: 0.00514 (20%) | DB: 0.00890 (36%) | 200 OK [http://localhost/test]
+
+
+Processing TheSiteController#list (for 127.0.0.1 at 2008-09-17 12:01:52) [GET]
+  Session ID: 52524cfc2c4b945c564d02d88f31f995
+  Parameters: {"action"=>"list", "controller"=>"the_site"}
+DEPRECATION WARNING: paginate is deprecated and will be removed from Rails 2.0 (Pagination is moving to a plugin in Rails 2.0: script/plugin install svn://errtheblog.com/svn/plugins/classic_pagination)  See http://www.rubyonrails.org/deprecation for details. (called from list at /Users/eabolden/bcgsite/bcg_internal_web/app/controllers/the_site_controller.rb:14)
+  [4;36;1mSite Columns (0.001899)[0m   [0;1mSHOW FIELDS FROM sites[0m
+  [4;35;1mSQL (0.000886)[0m   [0mSELECT count(*) AS count_all FROM sites [0m
+  [4;36;1mSite Load (0.001070)[0m   [0;1mSELECT * FROM sites LIMIT 0, 10[0m
+Rendering  within layouts/application.rhtml
+Rendering the_site/list
+  [4;35;1mUser Columns (0.001858)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.001240)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) LIMIT 1[0m
+Completed in 0.03188 (31 reqs/sec) | Rendering: 0.01881 (58%) | DB: 0.00695 (21%) | 200 OK [http://localhost/the_site/list]
+
+
+Processing TestController#index (for 127.0.0.1 at 2008-09-29 16:53:49) [GET]
+  Session ID: cff056383746f98585e613c459c5f3dc
+  Parameters: {"action"=>"index", "controller"=>"test"}
+Redirected to http://localhost:3000/account/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x35570b4 @filter=:login_required>] returned_false.
+Completed in 0.00305 (327 reqs/sec) | 302 Found [http://localhost/]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-29 16:53:49) [GET]
+  Session ID: cff056383746f98585e613c459c5f3dc
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.02095 (47 reqs/sec) | Rendering: 0.01955 (93%) | 200 OK [http://localhost/account/login]
+
+
+Processing ViewController#list (for 127.0.0.1 at 2008-09-29 16:53:52) [GET]
+  Session ID: cff056383746f98585e613c459c5f3dc
+  Parameters: {"action"=>"list", "controller"=>"view"}
+  [4;36;1mSQL (0.001137)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mArticle Columns (0.002360)[0m   [0mSHOW FIELDS FROM articles[0m
+  [4;36;1mArticle Load (0.001232)[0m   [0;1mSELECT * FROM articles WHERE (articles.`page_id` IS NULL) [0m
+Rendering  within layouts/application
+Rendering view/list
+Completed in 1.11156 (0 reqs/sec) | Rendering: 0.01073 (0%) | DB: 0.00473 (0%) | 200 OK [http://localhost/view/list]
+
+
+Processing ThePageController#list (for 127.0.0.1 at 2008-09-29 16:53:56) [GET]
+  Session ID: cff056383746f98585e613c459c5f3dc
+  Parameters: {"action"=>"list", "controller"=>"the_page"}
+  [4;35;1mPage Load (0.001726)[0m   [0mSELECT * FROM pages [0m
+  [4;36;1mPage Columns (0.002033)[0m   [0;1mSHOW FIELDS FROM pages[0m
+Rendering  within layouts/application.rhtml
+Rendering the_page/list
+Completed in 0.03481 (28 reqs/sec) | Rendering: 0.01834 (52%) | DB: 0.00376 (10%) | 200 OK [http://localhost/the_page/list]
+
+
+Processing TheSiteController#list (for 127.0.0.1 at 2008-09-29 16:53:57) [GET]
+  Session ID: cff056383746f98585e613c459c5f3dc
+  Parameters: {"action"=>"list", "controller"=>"the_site"}
+DEPRECATION WARNING: paginate is deprecated and will be removed from Rails 2.0 (Pagination is moving to a plugin in Rails 2.0: script/plugin install svn://errtheblog.com/svn/plugins/classic_pagination)  See http://www.rubyonrails.org/deprecation for details. (called from list at /Users/eabolden/Documents/svnbiostat/web/dev/rails/rails2.1/bcg_internal_web/app/controllers/the_site_controller.rb:14)
+  [4;35;1mSite Columns (0.002103)[0m   [0mSHOW FIELDS FROM sites[0m
+  [4;36;1mSQL (0.000774)[0m   [0;1mSELECT count(*) AS count_all FROM sites [0m
+  [4;35;1mSite Load (0.000818)[0m   [0mSELECT * FROM sites LIMIT 0, 10[0m
+Rendering  within layouts/application.rhtml
+Rendering the_site/list
+Completed in 0.02473 (40 reqs/sec) | Rendering: 0.01189 (48%) | DB: 0.00370 (14%) | 200 OK [http://localhost/the_site/list]
+
+
+Processing TheArticleController#list (for 127.0.0.1 at 2008-09-29 16:53:59) [GET]
+  Session ID: cff056383746f98585e613c459c5f3dc
+  Parameters: {"action"=>"list", "controller"=>"the_article"}
+  [4;36;1mArticle Load (0.002713)[0m   [0;1mSELECT * FROM articles [0m
+  [4;35;1mArticle Columns (0.002037)[0m   [0mSHOW FIELDS FROM articles[0m
+  [4;36;1mPage Columns (0.001670)[0m   [0;1mSHOW FIELDS FROM pages[0m
+  [4;35;1mPage Load (0.001165)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 3) [0m
+  [4;36;1mPage Load (0.001021)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;35;1mPage Load (0.001114)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+  [4;36;1mPage Load (0.001014)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 4) [0m
+  [4;35;1mPage Load (0.000979)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;36;1mPage Load (0.001067)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;35;1mPage Load (0.001051)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 6) [0m
+  [4;36;1mPage Load (0.001054)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 3) [0m
+  [4;35;1mPage Load (0.001056)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 5) [0m
+  [4;36;1mPage Load (0.001029)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 7) [0m
+  [4;35;1mPage Load (0.001035)[0m   [0mSELECT * FROM pages WHERE (pages.`id` = 1) [0m
+  [4;36;1mPage Load (0.001042)[0m   [0;1mSELECT * FROM pages WHERE (pages.`id` = 2) [0m
+Rendering  within layouts/application.rhtml
+Rendering the_article/list
+Completed in 0.10450 (9 reqs/sec) | Rendering: 0.05997 (57%) | DB: 0.01905 (18%) | 200 OK [http://localhost/the_article/list]
+
+
+Processing TestController#index (for 127.0.0.1 at 2008-09-29 18:04:33) [GET]
+  Session ID: 30922f49e31ff6ac4c56e42470cc7578
+  Parameters: {"action"=>"index", "controller"=>"test"}
+Redirected to http://localhost:3000/account/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x355e9b8 @filter=:login_required>] returned_false.
+Completed in 0.00200 (499 reqs/sec) | 302 Found [http://localhost/]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2008-09-29 18:04:33) [GET]
+  Session ID: 30922f49e31ff6ac4c56e42470cc7578
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.01174 (85 reqs/sec) | Rendering: 0.01087 (92%) | 200 OK [http://localhost/account/login]
+
+
+Processing ViewController#list (for 127.0.0.1 at 2008-09-29 18:04:37) [GET]
+  Session ID: 30922f49e31ff6ac4c56e42470cc7578
+  Parameters: {"action"=>"list", "controller"=>"view"}
+
+
+Mysql::Error (Unknown database 'bcg_internal_web_development'):
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/connection_adapters/mysql_adapter.rb:389:in `real_connect'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/connection_adapters/mysql_adapter.rb:389:in `connect'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/connection_adapters/mysql_adapter.rb:152:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/connection_adapters/mysql_adapter.rb:82:in `new'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/connection_adapters/mysql_adapter.rb:82:in `mysql_connection'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/connection_adapters/abstract/connection_specification.rb:262:in `send'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/connection_adapters/abstract/connection_specification.rb:262:in `connection_without_query_cache='
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/query_cache.rb:54:in `connection='
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/connection_adapters/abstract/connection_specification.rb:230:in `retrieve_connection'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/base.rb:763:in `columns'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/base.rb:776:in `column_names'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/base.rb:789:in `column_methods_hash'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/base.rb:1265:in `all_attributes_exists?'
+    /Library/Ruby/Gems/1.8/gems/activesupport-1.4.4/lib/active_support/inflector.rb:250:in `all?'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/base.rb:1265:in `each'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/base.rb:1265:in `all?'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/base.rb:1265:in `all_attributes_exists?'
+    /Library/Ruby/Gems/1.8/gems/activerecord-1.15.6/lib/active_record/base.rb:1199:in `method_missing'
+    /Users/eabolden/Documents/git_matc/bcg_internal_web/app/controllers/view_controller.rb:8:in `list'
+    /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/base.rb:1101:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/base.rb:1101:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/filters.rb:696:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/filters.rb:688:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/rescue.rb:83:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/base.rb:435:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/base.rb:435:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/filters.rb:684:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/session_management.rb:114:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/base.rb:334:in `process'
+    /Library/Ruby/Gems/1.8/gems/rails-1.2.6/lib/dispatcher.rb:41:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-1.13.6/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)

@@ -1,0 +1,21 @@
+<%= error_messages_for 'page' %>
+
+<!--[form:page]-->
+
+<p><label for="page_site_id">Site Name</label><br/>
+<%= select 'page','site_id', Site.find(:all).collect {|tt| [tt.sitename,tt.id]},{:prompt => 'Select A Site for this Page'}  %></p>
+
+<p><label for="page_page_title">Page title</label><br/>
+<%= text_field 'page', 'page_title'  %></p>
+
+<p><label for="page_page_author">Page author</label><br/>
+<%= text_field 'page', 'page_author'  %></p>
+
+<p><label for="page_page_about">Page about</label><br/>
+<%= text_field 'page', 'page_about'  %></p>
+
+<p><label for="page_page_weight">Page weight</label><br/>
+<%= text_field 'page', 'page_weight'  %></p>
+
+<!--[eoform:page]-->
+

@@ -1,0 +1,14 @@
+<h1>Test#index AKA = Home</h1>
+<p>Find me in app/views/test/index.rhtml</p>
+
+<p>This is a temporary placeholder and launch-point page. There should be a bit of explanatory text here, but nothing much in addition. There will be extra links on this page for now though.</p>
+
+<p>Login, Logout, Tagging, Search, Sites -- Pages -- Articles (view Article), sidebar items</p>
+
+<p>If logged-in: Private Access</p>
+
+<p>If NOT logged-in: Public Access</p>
+
+<h1><%= link_to "Reports", :controller => 'view', :action => "list" %></h1>
+
+<p><%= link_to "Articles", :controller => 'the_article', :action => "list" %> | <%= link_to "Pages", :controller => 'the_page', :action => "list" %> | <%= link_to "Sites", :controller => 'the_site', :action => "list" %></p>

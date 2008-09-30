@@ -1,0 +1,44 @@
+<p><%= link_to "Articles", :controller => 'the_article', :action => "list" %> | <%= link_to "Pages", :controller => 'the_page', :action => "list" %> | <%= link_to "Sites", :controller => 'the_site', :action => "list" %></p>
+
+<h1>Listing pages (<%= @pages.size %>)</h1>
+
+<%= link_to 'New page', :action => 'new' %>
+
+<p />
+<table style='background-color:#555555 '>
+  <tr>
+	<th>Page Title</th>
+	<th>Page Author</th>
+	<th>Sort</th>
+	<th>Create</th>
+	<th>Update</th>
+  </tr>
+<tr>
+<td colspan='5'><hr color="444444"/></td>
+</tr>
+  <tr>
+	<td colspan='2'><b>About Page</b></td>
+  </tr>
+  
+<% for page in @pages %>
+  <tr>
+	<td><%= link_to "#{page.page_title}",:controller => 'the_article',:action => 'view_list',:id => page.id %></td>
+	<td><%= page.page_author %></td>
+	<td><%= page.page_weight %></td>
+	<td><%= page.created_on %></td>
+	<td><%= page.updated_on %></td>
+  <tr>
+	<td colspan='4'><%= page.page_about %></td>
+  </tr>
+    <td><%= button_to 'Edit', :action => 'edit', :id => page %>
+</td<td<%= button_to 'Delete', { :action => 'destroy', :id => page }, :confirm => 'Are you sure?', :method => :post %>
+</td>
+  </tr>
+<tr>
+<td colspan='5'><hr color="#444444"/></td>
+</tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'New page', :action => 'new' %>

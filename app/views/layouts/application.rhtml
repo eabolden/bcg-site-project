@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	
+	<%= javascript_include_tag 'prototype.js' %>
+	
+        <%= stylesheet_link_tag "style","blue", :media => "all" %>
+<%#= stylesheet_link_tag "style","blue","green","orange","purple", :media => "all" %>
+	<title><%= @current_action.capitalize %> Page</title>
+	
+</head>
+
+<body>
+	<div id="main">
+	    <div id="links">
+	      <!-- **** INSERT LINKS HERE **** -->
+	      <%= link_to "WebTeam","http://www.medsch.wisc.edu/" %> | <%= link_to "Biostatistics Website","http://www.biostat.wisc.edu/" %> | <%= link_to "BCG Inventory","https://edps.biostat.wisc.edu/olea" %> | <%= link_to "Biostatistics People","http://www.biostat.wisc.edu/Contact/index.htm" %> | <%= link_to "Wiki","http://system.biostat.wisc.edu/docs" %> | | <%= link_to "AppsWiki","https://admin.bcg.wisc.edu/index.php/Main_Page" %>
+	<% if logged_in? %>
+		<%= link_to "Logout",:controller => 'account',:action => 'logout' %>
+	<% else %>
+		<%= link_to "Login",:controller => 'account',:action => 'login' %>
+	<% end %>
+		<!-- **** INSERT LINKS HERE **** -->
+	    </div>
+	    <div id="logo">
+		  <h1>BCG Support</h1>
+		  <h2>
+		    <%= Time.now %>
+			<%if logged_in?%>
+			  <%= "Logged in: "%>
+			<%= link_to self.current_user.login,:controller => 'account',:action => 'logout'  %>
+			<%else%>
+			  <%= link_to "Click to login", :controller => 'account', :action => 'login' %>
+			<% end %>
+		  </h2>
+		</div>
+	    <div id="menu">
+	      <ul>
+	        <!-- **** INSERT NAVIGATION ITEMS HERE (use id="selected" to identify the page you're on **** -->
+	        <li>
+			  <% if @current_action == 'index'-%>
+			    <%= link_to "Home", :controller => 'test', :action => "index" ,'id' => "selected" -%>
+			  <% else -%>
+			    <%= link_to "Home", :controller => 'test', :action => "index" %>
+			  <% end -%>
+			</li>
+
+			<li>
+			  <% if @current_action == 'about'-%>
+			    <%= link_to "About", :controller => 'bcg', :action => "about" ,'id' => "selected" -%>
+			  <% else -%>
+			    <%= link_to "About","http://www.biostat.wisc.edu/bcg/about.html" %>
+			  <% end -%>
+			</li>
+			<li>
+			  <% if @current_action == 'support'-%>
+			    <%= link_to "BCG External", :controller => 'support', :action => "index" ,'id' => "selected" -%>
+			  <% else -%>
+			    <%= link_to "BCG External","http://www.biostat.wisc.edu/bcg/support.html" %>
+			  <% end -%>
+			</li>
+			<li>
+			  <% if @current_controller == 'the_site' || @current_controller == 'the_page' || @current_controller == 'the_article' || @current_controller == 'view' -%>
+			    <%= link_to "BCG Internal", :controller => 'view', :action => "list" ,'id' => "selected" -%>
+			  <% else -%>
+			    <%= link_to "BCG Internal", :controller => 'view', :action => "list" %>
+			  <% end -%>
+			</li>
+			<li>
+			  <% if @current_action == 'search'-%>
+			    <%= link_to "Search", :controller => 'view', :action => "list" ,'id' => "selected" -%>
+			  <% else -%>
+			    <%= link_to "Search", :controller => 'view', :action => "list" %>
+			  <% end -%>
+			</li>
+			<li>
+			  <% if @current_action == 'report'-%>
+			    <%= link_to "Reports", :controller => 'report', :action => "index" ,'id' => "selected" -%>
+			  <% else -%>
+			    <%= link_to "Reports", :controller => 'report', :action => "index" %>
+			  <% end -%>
+			</li>
+			<li>
+			  <% if @current_action == 'account'-%>
+			    <%= link_to "Accounts", :controller => 'account', :action => "index" ,'id' => "selected" -%>
+			  <% else -%>
+			    <%= link_to "Accounts", :controller => 'account', :action => "index" %>
+			  <% end -%>
+			</li>
+	      </ul>
+	    </div>
+	    <div id="content">
+	      <div id="column1">
+<% if @newsitems == "" %>
+  <% #'newsitems is blank' %>
+<% else %>
+  <div class="sidebaritem">
+	  <!-- rounded corners - top **** -->
+	  <div class="rtop">
+		<div class="r1"></div>
+		<div class="r2"></div>
+	    <div class="r3"></div>
+	    <div class="r4"></div>
+	  </div>
+	  <h1>latest news</h1>
+	  <!-- **** INSERT NEWS ITEMS HERE **** -->
+	  <%= @newsitems %>
+	  <!-- rounded corners - bottom **** -->
+	  <div class="rbottom">
+		<div class="r4"></div>
+	    <div class="r3"></div>
+	    <div class="r2"></div>
+	    <div class="r1"></div>
+      </div>
+   </div>
+<% end %>
+<% if @additional_links == "" %>
+  <% #'additional_links is blank' %>
+<% else %>
+	<div class="sidebaritem">
+	  <!-- rounded corners - top **** -->
+	  <div class="rtop">
+		<div class="r1"></div>
+		<div class="r2"></div>
+		<div class="r3"></div>
+		<div class="r4"></div>
+	  </div>
+	  <h1>additional links</h1>
+	  <div class="sbilinks">
+	    <!-- **** INSERT ADDITIONAL LINKS HERE **** -->
+	    <%= @additional_links -%>
+	  </div>
+	  <!-- rounded corners - bottom **** -->
+	  <div class="rbottom">
+		<div class="r4"></div>
+		<div class="r3"></div>
+		<div class="r2"></div>
+		<div class="r1"></div>
+	  </div>
+	</div>
+<% end %>
+<% if @other_info == "" %>
+  <% #'other_info is blank' %>
+<% else %>
+	<div class="sidebaritem">
+		<!-- rounded corners - top **** -->
+		<div class="rtop">
+			<div class="r1"></div>
+			<div class="r2"></div>
+			<div class="r3"></div>
+			<div class="r4"></div>
+		</div>
+		<h1>other information</h1>
+		<!-- **** INSERT OTHER INFORMATION HERE **** -->
+		<%= @other_info -%>
+		<!-- rounded corners - bottom **** -->
+		<div class="rbottom">
+			<div class="r4"></div>
+			<div class="r3"></div>
+			<div class="r2"></div>
+			<div class="r1"></div>
+		</div>
+	</div>
+<% end %>
+</div>
+<div id="column2">
+<!-- **** INSERT PAGE CONTENT HERE **** -->
+<p style="color: green"><%= flash[:notice] %></p>
+
+	<%= yield %>
+
+	      </div>
+	    </div>
+	    <div id="footer">
+	      copyright &copy; 2007 BCG Webteam | <a href="#">support@biostat.wisc.edu</a> | <a href="http://validator.w3.org/check?uri=referer">XHTML 1.1</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.dcarter.co.uk">design by dcarter</a>
+	    </div>
+	  </div>
+
+</body>
+</html>

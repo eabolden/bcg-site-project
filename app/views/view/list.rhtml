@@ -1,0 +1,44 @@
+<p><%= link_to "Articles", :controller => 'the_article', :action => "list" %> | <%= link_to "Pages", :controller => 'the_page', :action => "list" %> | <%= link_to "Sites", :controller => 'the_site', :action => "list" %></p>
+
+<h1>Listing articles (<%= @articles.size %>)</h1>
+
+<table>
+  <p><%= link_to 'New article', :controller => 'the_article', :action => 'new' %></p>
+
+  <% for article in @articles %>
+    <tr>
+      <td>
+	    <span class="article_title"><b>Article</b> <%= link_to h(article.article_title), :controller => 'the_article', :action => 'show', :id => h(article.id) %></span><br />
+      <div class="changedates"><b><%= link_to "Page", :controller => 'the_page', :action => 'list' %></b> <%= h article.page.page_title %></div>
+      </td>
+   </tr>
+
+    <tr></tr>
+
+    <tr>
+      <td><b>Article:</b> <%= article.article_public_text %> 
+		<% if logged_in? %>
+		<%= "--- #{article.article_private_text}" %>
+		<% end %>
+</td>
+   </tr>
+
+    <tr></tr>
+
+    <tr>
+      <td><div class="changedates"><b>Created on</b> <%= h article.created_on %><br />
+      <b>Modified on</b> <%= h article.updated_on %></div></td>
+      
+   </tr>
+
+
+
+	<td <%= link_to 'Edit', :controller => 'the_article', :action => 'edit', :id => article %><p /></td>
+	<tr>
+	<td colspan='5'><hr color="#444444"/></td>
+	</tr>
+  <% end %>
+</table>
+  <p />
+  <p><%= link_to 'New article', :controller => 'the_article', :action => 'new' %> | <%= link_to 'Pages View', :controller => 'the_page', :action => 'list' %></p>
+
